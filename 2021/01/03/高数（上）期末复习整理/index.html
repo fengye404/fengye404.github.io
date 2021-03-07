@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本文旨在列举出一些常见考点和一些易忘公式结论，以达到备忘效果。因此较为简单或偏僻的定义、公式、结论都不过多赘述，只作为提纲列出（可后续自行百度或查书） 本文为作者一人借鉴资料独自整理，难免有所纰漏，若读者发现错误，可与作者联系，及时纠正。 第一章：极限与连续1、无穷小的比较、等价无穷小的替换 无穷小的比较：   \lim\frac{\beta}{\alpha^k}&#x3D;c\neq0,k&gt;0,则称\be">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高数（上）期末复习整理">
+<meta property="og:url" content="http://example.com/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="風楪FY">
+<meta property="og:description" content="本文旨在列举出一些常见考点和一些易忘公式结论，以达到备忘效果。因此较为简单或偏僻的定义、公式、结论都不过多赘述，只作为提纲列出（可后续自行百度或查书） 本文为作者一人借鉴资料独自整理，难免有所纰漏，若读者发现错误，可与作者联系，及时纠正。 第一章：极限与连续1、无穷小的比较、等价无穷小的替换 无穷小的比较：   \lim\frac{\beta}{\alpha^k}&#x3D;c\neq0,k&gt;0,则称\be">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E6%9B%BF%E6%8D%A2.jpg">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%88%A4%E6%96%AD%E9%97%B4%E6%96%AD%E7%82%B9%E7%9A%84%E6%AD%A5%E9%AA%A4.png">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E7%9A%84%E6%B1%82%E6%B3%95.png">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%90%84%E7%A7%8D%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95.png">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC.png">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0%E7%9A%84n%E9%98%B6%E5%AF%BC%E6%95%B0.png">
+<meta property="og:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E8%8E%B1%E5%B8%83%E5%B0%BC%E5%85%B9%E5%85%AC%E5%BC%8F.png">
+<meta property="article:published_time" content="2021-01-02T17:49:09.000Z">
+<meta property="article:modified_time" content="2021-01-06T01:39:12.551Z">
+<meta property="article:author" content="風楪FY">
+<meta property="article:tag" content="复习">
+<meta property="article:tag" content="高数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E6%9B%BF%E6%8D%A2.jpg">
+
+<link rel="canonical" href="http://example.com/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>高数（上）期末复习整理 | 風楪FY</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">風楪FY</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/home/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="風楪FY">
+      <meta itemprop="description" content="向来心是看客心，奈何人是剧中人">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="風楪FY">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高数（上）期末复习整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-03 01:49:09" itemprop="dateCreated datePublished" datetime="2021-01-03T01:49:09+08:00">2021-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-06 09:39:12" itemprop="dateModified" datetime="2021-01-06T09:39:12+08:00">2021-01-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%AB%98%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">高数</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="高数（上）期末复习整理" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/03/%E9%AB%98%E6%95%B0%EF%BC%88%E4%B8%8A%EF%BC%89%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0%E6%95%B4%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong><em>本文旨在列举出一些常见考点和一些易忘公式结论，以达到备忘效果。因此较为简单或偏僻的定义、公式、结论都不过多赘述，只作为提纲列出<del>（可后续自行百度或查书）</del></em></strong></p>
+<p><strong><em>本文为作者一人借鉴资料独自整理，难免有所纰漏，若读者发现错误，可与作者联系，及时纠正。</em></strong></p>
+<h1 id="第一章：极限与连续"><a href="#第一章：极限与连续" class="headerlink" title="第一章：极限与连续"></a>第一章：极限与连续</h1><h3 id="1、无穷小的比较、等价无穷小的替换"><a href="#1、无穷小的比较、等价无穷小的替换" class="headerlink" title="1、无穷小的比较、等价无穷小的替换"></a>1、无穷小的比较、等价无穷小的替换</h3><ul>
+<li>无穷小的比较：</li>
+</ul>
+<script type="math/tex; mode=display">
+\lim\frac{\beta}{\alpha^k}=c\neq0,k>0,则称\beta是关于\alpha的k阶无穷小</script><script type="math/tex; mode=display">
+低阶+高阶=低阶</script><script type="math/tex; mode=display">
+低阶\times高阶=（低+高）阶</script><ul>
+<li>常用等价无穷小替换：</li>
+</ul>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E6%9B%BF%E6%8D%A2.jpg" alt="等价无穷小替换" style="zoom: 50%;" /></p>
+<h3 id="2、两个重要极限"><a href="#2、两个重要极限" class="headerlink" title="2、两个重要极限"></a>2、两个重要极限</h3><script type="math/tex; mode=display">
+\lim_{x\rightarrow0}\frac{\sin x}{x}=1</script><script type="math/tex; mode=display">
+\lim_{x\rightarrow 0}(1+x)^\frac{1}{x}=e</script><h3 id="3、求函数间断点及间断点类型的判别"><a href="#3、求函数间断点及间断点类型的判别" class="headerlink" title="3、求函数间断点及间断点类型的判别"></a>3、求函数间断点及间断点类型的判别</h3><ul>
+<li>间断的类型：<script type="math/tex; mode=display">
+第一类间断点：\lim_{n\rightarrow x_0}f(x)的左右极限存在</script></li>
+</ul>
+<p>其中若左右极限存在且相等，则为<strong>可去间断点</strong></p>
+<p>若左右极限存在但不相等，则成为<strong>跳跃间断点</strong></p>
+<script type="math/tex; mode=display">
+第二类间断点：不是第一类的都是第二类</script><ul>
+<li>判断间断点的步骤</li>
+</ul>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%88%A4%E6%96%AD%E9%97%B4%E6%96%AD%E7%82%B9%E7%9A%84%E6%AD%A5%E9%AA%A4.png" alt="判断间断点的步骤" style="zoom:50%;" /></p>
+<h3 id="4、函数极限的求法"><a href="#4、函数极限的求法" class="headerlink" title="4、函数极限的求法"></a>4、函数极限的求法</h3><p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E7%9A%84%E6%B1%82%E6%B3%95.png" alt="函数极限的求法" style="zoom: 50%;" /></p>
+<h3 id="5、极限存在的两个准则"><a href="#5、极限存在的两个准则" class="headerlink" title="5、极限存在的两个准则"></a>5、<del>极限存在的两个准则</del><!--今年不考--></h3><ul>
+<li>夹逼准则</li>
+</ul>
+<ul>
+<li>单调有界收敛准则：单调有界数列必有极限</li>
+</ul>
+<hr>
+<h1 id="第二章：导数与微分"><a href="#第二章：导数与微分" class="headerlink" title="第二章：导数与微分"></a>第二章：导数与微分</h1><h3 id="1、导数"><a href="#1、导数" class="headerlink" title="1、导数"></a>1、导数</h3><ul>
+<li>导数表</li>
+</ul>
+<script type="math/tex; mode=display">
+(\tan x)'=\sec^2x\quad(\cot x)=-\csc^2x\\
+(\arcsin x)'=\frac{1}{\sqrt{1-x^2}}\quad(\arccos x)'=\frac{-1}{\sqrt{1-x^2}}\\
+(\arctan x)=\frac{1}{x^2+1}\quad(\text{arccot}x)=\frac{-1}{x^2+1}\\
+(\log_ax)'=\frac{1}{x\ln a}\quad(a^x)'=a^x\ln a\\
+(\sec x)'=\sec\tan x\quad(\csc x)'=-\csc\cot x</script><ul>
+<li><p>各种导数的求导</p>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%90%84%E7%A7%8D%E6%B1%82%E5%AF%BC%E6%96%B9%E6%B3%95.png" alt="各种求导方法" style="zoom:50%;" /></p>
+</li>
+<li><p>参数方程求导</p>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%8F%82%E6%95%B0%E6%96%B9%E7%A8%8B%E6%B1%82%E5%AF%BC.png" alt="参数方程求导" style="zoom:50%;" /></p>
+</li>
+<li><p>极坐标方程求导</p>
+<script type="math/tex; mode=display">
+\rho=\rho(\theta)转化为
+\left\{
+\begin{aligned}
+x=\rho(\theta)\cos (\theta)\\ y=\rho(\theta)\sin(\theta)
+\end{aligned}
+\right.\\
+然后当作参数方程求导</script></li>
+<li><p>常见函数的高阶导数<!--今年不考--></p>
+</li>
+</ul>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0%E7%9A%84n%E9%98%B6%E5%AF%BC%E6%95%B0.png" alt="常见函数的n阶导数"></p>
+<ul>
+<li>莱布尼兹公式<!--今年不考--></li>
+</ul>
+<p><img src="https://fengye404.oss-cn-beijing.aliyuncs.com/img/%E8%8E%B1%E5%B8%83%E5%B0%BC%E5%85%B9%E5%85%AC%E5%BC%8F.png" alt="莱布尼兹公式" style="zoom:67%;" /></p>
+<h3 id="2、微分"><a href="#2、微分" class="headerlink" title="2、微分"></a>2、微分</h3><script type="math/tex; mode=display">
+dy=f'(x)\Delta x\\
+\Delta y=dy+o(x)</script><hr>
+<h1 id="第三章：微分中值定理与导数的应用"><a href="#第三章：微分中值定理与导数的应用" class="headerlink" title="第三章：微分中值定理与导数的应用"></a>第三章：微分中值定理与导数的应用</h1><h3 id="1、微分中值定理"><a href="#1、微分中值定理" class="headerlink" title="1、微分中值定理"></a>1、微分中值定理</h3><p>（1）费马引理</p>
+<script type="math/tex; mode=display">
+若函数可微f(x)在x_0处取得极值，则f'(x_0)=0</script><p>（2）罗尔定理</p>
+<script type="math/tex; mode=display">
+设函数f(x)在闭区间[a,b]上连续，在开区间(a,b)上可导，且f(a)=f(b),\\则至少可以找到一点\xi\in(a,b)，使得f'(\xi)=0</script><p>（3）拉格朗日中值定理</p>
+<script type="math/tex; mode=display">
+设函数f(x)在闭区间[a,b]上连续，在开区间(a,b)上可导，且f(a)=f(b),\\则至少可以找到一点\xi\in(a,b)，使得f'(\xi)=\frac{f(b)-f(a)}{b-a}</script><p>（4）柯西中值定理</p>
+<script type="math/tex; mode=display">
+设函数f(x)、g(x)在闭区间[a,b]上连续，在开区间(a,b)上可微,\\
+且对于任何x\in(a,b),g'(x)\neq0,\\
+则至少可以找到一点\xi\in(a,b)，使得\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\xi)}{g'(\xi)}</script><h3 id="2、洛必达法则"><a href="#2、洛必达法则" class="headerlink" title="2、洛必达法则"></a>2、洛必达法则</h3><script type="math/tex; mode=display">
+设函数f(x)，g(x)满足\\
+(1)\lim_{x\rightarrow a}f(x)=\lim_{x\rightarrow a}g(x)=0或\infty\\
+(2)在点a的某个去心领域内，f'(x)和g'(x)都存在且g'(x)\neq 0\\
+(3)\lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}=k（有限或无穷），则\\
+\lim_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}=k</script><p><em>务必注意洛必达法则三大前提</em></p>
+<h3 id="3、泰勒公式"><a href="#3、泰勒公式" class="headerlink" title="3、泰勒公式"></a>3、泰勒公式</h3><ul>
+<li><h4 id="泰勒多项式"><a href="#泰勒多项式" class="headerlink" title="泰勒多项式"></a>泰勒多项式</h4></li>
+</ul>
+<script type="math/tex; mode=display">
+f(x)\approx f(x_0)+f'(x)(x-x_0)+\frac{f''(x)}{2!}(x-x_0)+···+\frac{f^\left(n\right)(x_0)}{n!}(x-x_0)^n</script><ul>
+<li><h4 id="泰勒中值定理"><a href="#泰勒中值定理" class="headerlink" title="泰勒中值定理"></a>泰勒中值定理</h4></li>
+</ul>
+<script type="math/tex; mode=display">
+设函数f(x)在某一区间I上有直到n+1阶的导数，而x_0\in I，\\则对\forall x\in I，f(x)可按x-x_0的方幂展开为\\
+f(x)= f(x_0)+f'(x)(x-x_0)+\frac{f''(x)}{2!}(x-x_0)+···+\\
+\frac{f^\left(n\right)(x_0)}{n!}(x-x_0)^n+\frac{f^\left(n+1\right)(\xi)}{(n+1)!}(x-x_0)^\left(n+1\right) \quad\quad\quad (*)\\
+称(*)式为函数f(x)按(x-x_0)的幂展开的带有拉格朗日型余项的n阶泰勒公式\\
+其中R_n(x)=\frac{f^\left(n+1\right)(\xi)}{(n+1)!}(x-x_0)^\left(n+1\right)称为f(x)的拉格朗日型余项\\
+若R_n(x)为形如o(x^n)的式子，则称为佩亚诺型余项</script><ul>
+<li><h4 id="麦克劳林公式（几种常见的形式）"><a href="#麦克劳林公式（几种常见的形式）" class="headerlink" title="麦克劳林公式（几种常见的形式）"></a>麦克劳林公式（几种常见的形式）<!--f(x)按x展开的n阶泰勒公式--></h4></li>
+</ul>
+<p>1、f(x)=$e^x$</p>
+<script type="math/tex; mode=display">
+e^x\approx 1+x+\frac{x^2}{2!}+···+\frac{x^n}{n!}</script><p>2、f(x)=$\sin x$</p>
+<script type="math/tex; mode=display">
+sinx\approx x-\frac{x^3}{3!}+\frac{x^5}{5!}-···+(-1)^\left(m-1\right)\frac{x^\left(2m-1\right)}{(2m-1)!}</script><p>3、f(x)=$\cos x$</p>
+<script type="math/tex; mode=display">
+cosx\approx 1-\frac{x^2}{2!}+\frac{x^4}{4!}-···+(-1)^\left(m-1\right)\frac{x^\left(2m-2\right)}{(2m-2)!}</script><p>4、f(x)=$(1+x)^a$</p>
+<script type="math/tex; mode=display">
+(1+x)^a\approx1+ax+\frac{a(a-1)}{2!}x^2+···+\frac{a(a-1)···(a-n+1)}{n!}x^n</script><p>5、f(x)=ln(x+1)</p>
+<script type="math/tex; mode=display">
+ln(x+1)\approx x-\frac{x^2}{2!}+\frac{x^3}{3!}-···+(-1)^\left(n-1\right)\frac{x^n}{n!}</script><h3 id="4、函数的绘制"><a href="#4、函数的绘制" class="headerlink" title="4、函数的绘制"></a>4、函数的绘制</h3><ul>
+<li><p>极值</p>
+<p>第一和第二充分条件</p>
+</li>
+<li><p>最值</p>
+</li>
+<li><p>拐点（点坐标）</p>
+<p>凹凸性发生改变的点</p>
+</li>
+<li><p>凹凸性</p>
+<p>f’’(x)&gt;0为凹</p>
+<p>f’’(x)&lt;0为凸</p>
+</li>
+<li><p>渐近线</p>
+<ul>
+<li><p>水平渐近线</p>
+</li>
+<li><p>垂直渐近线</p>
+</li>
+<li><p>斜渐近线</p>
+<script type="math/tex; mode=display">
+设y=kx+b为函数y=f(x)的斜渐近线，\\
+k=\lim_{x\rightarrow+\infty(-\infty)}\frac{f(x)}{x}\\
+b=\lim_{x\rightarrow+\infty(-\infty)}(f(x)-kx)</script></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="第四章：不定积分"><a href="#第四章：不定积分" class="headerlink" title="第四章：不定积分"></a>第四章：不定积分</h1><h3 id="1、换元积分法"><a href="#1、换元积分法" class="headerlink" title="1、换元积分法"></a>1、换元积分法</h3><ul>
+<li>第一类换元积分法（凑微分法）</li>
+<li>第二类换元积分法（最后记得换回去）</li>
+</ul>
+<ol>
+<li>三角代换</li>
+<li>倒代换</li>
+<li>根式代换</li>
+</ol>
+<h3 id="2、分部积分法"><a href="#2、分部积分法" class="headerlink" title="2、分部积分法"></a>2、分部积分法</h3><script type="math/tex; mode=display">
+①\int{uv'}dx=uv-\int{u'v}dx\\
+②\int{u}dv=uv-\int{v}du</script><p>u、v的选择：反对幂指三</p>
+<h3 id="3、有理函数的积分"><a href="#3、有理函数的积分" class="headerlink" title="3、有理函数的积分"></a>3、有理函数的积分</h3><ol>
+<li>有理函数的积分</li>
+<li>可化为有理函数的积分</li>
+</ol>
+<h3 id="4、常用不定积分"><a href="#4、常用不定积分" class="headerlink" title="4、常用不定积分"></a>4、常用不定积分</h3><script type="math/tex; mode=display">
+\int{\tan x}dx=\ln|\sec x|+C</script><script type="math/tex; mode=display">
+\int{\cot x}dx=\ln|\sin x|+C</script><script type="math/tex; mode=display">
+\int{\frac{1}{\sin x}}dx=\ln|\tan\frac{x}{2}|+C=\ln|\csc x-\cot x|+C</script><script type="math/tex; mode=display">
+\int{\frac{1}{\cos x}}dx=\ln|\sec x|+C=\ln|\sec x+\tan x|+C</script><hr>
+<h1 id="第五章：定积分及其应用"><a href="#第五章：定积分及其应用" class="headerlink" title="第五章：定积分及其应用"></a>第五章：定积分及其应用</h1><h3 id="1、定积分的概念"><a href="#1、定积分的概念" class="headerlink" title="1、定积分的概念"></a>1、定积分的概念</h3><script type="math/tex; mode=display">
+\int_{a}^{b}f(x)dx=\lim_{\lambda\rightarrow0}\sum_{i=1}^nf(\xi_i)\Delta x_i</script><p>定积分的值与用什么符号来表示积分变量无关，只与f(x)以及区间[a,b]有关</p>
+<p><strong>一道例题：</strong></p>
+<script type="math/tex; mode=display">
+\lim_{n\rightarrow\infty}(\frac{n}{n^2+1^2}+\frac{n}{n^2+2^2}+···+\frac{n}{n^2+n^2})\\
+=\lim_{n\rightarrow\infty}\frac{1}{n}(\frac{n^2}{n^2+1^2}+\frac{n^2}{n^2+2^2}+···+\frac{n^2}{n^2+n^2})\\
+=\lim_{n\rightarrow\infty}\sum_{i=1}^{n}\frac{1}{1+(\frac{i}{n})^2}\frac{1}{n}=\int_{0}^{1}\frac{1}{1+x^2}dx</script><h3 id="2、定积分的几何意义：面积"><a href="#2、定积分的几何意义：面积" class="headerlink" title="2、定积分的几何意义：面积"></a>2、定积分的几何意义：面积</h3><h3 id="3、定积分的性质"><a href="#3、定积分的性质" class="headerlink" title="3、定积分的性质"></a>3、定积分的性质</h3><ul>
+<li>区间可加性质</li>
+<li>保号性质</li>
+<li>估值定理</li>
+</ul>
+<script type="math/tex; mode=display">
+设f(x)在[a,b]上可积，且有最大值M和最小值m，则\\
+m(b-a)\leq\int_{a}^{b}f(x)dx\leq M(b-a)</script><ul>
+<li>积分中值定理</li>
+</ul>
+<script type="math/tex; mode=display">
+设f(x),g(x)在[a,b]上连续，g(x)在[a,b]上不变号,则在[a,b]上至少有一点\xi,使\\
+\int_{a}^{b}f(x)g(x)dx=f(\xi)\int_{a}^{b}g(x)dx</script><h3 id="4、微积分基本定理"><a href="#4、微积分基本定理" class="headerlink" title="4、微积分基本定理"></a>4、微积分基本定理</h3><ul>
+<li><p>积分变上限函数</p>
+<script type="math/tex; mode=display">
+F(x)=\int_{a}^{x}f(t)dt\\
+F'(x)=\frac{d}{d(x)}\int_{a}^{x}f(t)dt=f(x)</script></li>
+<li><p>微积分基本定理</p>
+<script type="math/tex; mode=display">
+\int_{a}^{b}f(x)dx=F(x)|_a^b=F(b)-F(a)</script></li>
+</ul>
+<h3 id="5、定积分的换元积分法"><a href="#5、定积分的换元积分法" class="headerlink" title="5、定积分的换元积分法"></a>5、定积分的换元积分法</h3><p>与不定积分唯一不同的地方在于换元的同时需要换限</p>
+<ul>
+<li>几个常用关系式</li>
+</ul>
+<script type="math/tex; mode=display">
+\int_{0}^{\frac{\pi}{2}}\sin^nxdx=\int_{0}^{\frac{\pi}{2}}\cos^nxdx\\
+= \left\{
+  \begin{aligned}
+  \frac{n-1}{n}·\frac{n-3}{n-2}···\frac{3}{4}·\frac{1}{2}·\frac{\pi}{2}\quad (n为偶数)\\
+  \frac{n-1}{n}·\frac{n-3}{n-2}···\frac{4}{5}·\frac{2}{3}\quad (n为奇数)
+  \end{aligned}
+  \right.</script><ul>
+<li>偶倍奇零（对称去间）</li>
+</ul>
+<h3 id="6、定积分的分部积分法"><a href="#6、定积分的分部积分法" class="headerlink" title="6、定积分的分部积分法"></a>6、定积分的分部积分法</h3><script type="math/tex; mode=display">
+\int_{a}^{b}u(x)v'(x)dx=u(x)v(x)|_a^b-\int_{a}^{b}u'(x)v(x)dx</script><h3 id="7、广义积分"><a href="#7、广义积分" class="headerlink" title="7、广义积分"></a>7、广义积分</h3><p>​    1.无穷区间上的广义积分</p>
+<script type="math/tex; mode=display">
+\int_{-\infty}^{+\infty}f(x)dx=\lim_{B\rightarrow-\infty}\int_{B}^{a}f(x)dx+\lim_{A\rightarrow+\infty}\int_{a}^{A}f(x)dx\\
+\int_{-\infty}^{+\infty}f(x)dx=F(x)|_{-\infty}^{+\infty}\\</script><p>​    2.无界函数的广义积分（瑕积分）</p>
+<script type="math/tex; mode=display">
+设函数f(x)在区间[a,b)连续，在x=b附近无界，则\\
+\int_{a}^{b}f(x)dx=\lim_{B\rightarrow-\infty}\int_{a}^{B}f(x)dx</script><h3 id="8、定积分的几何应用"><a href="#8、定积分的几何应用" class="headerlink" title="8、定积分的几何应用"></a>8、定积分的几何应用</h3><ul>
+<li>微元法</li>
+</ul>
+<p>由于<strong>定积分的实质是求和</strong>，因此解决实际问题时可以将所在的区间分成割成无限份，求出每一份的量再用定积分求和。</p>
+<ol>
+<li><p>求面积</p>
+<ul>
+<li>直角坐标形式</li>
+</ul>
+<script type="math/tex; mode=display">
+若平面图形由连续曲线f(x),g(x)和直线x=a,x=b，围成，则面积为\\
+S=\int_{a}^{b}|f(x)-g(x)|dx</script><ul>
+<li>参数坐标形式 </li>
+</ul>
+<script type="math/tex; mode=display">
+设所给曲线的参数方程为x=x(t),y=y(t),并设x(\alpha)=a,x(\beta)=b,\\则由曲线x=x(t)、y=y(t)和直线x=a,x=b所围成的面积为\\
+S=\int_{\alpha}^{\beta}|y(t)|x'(t)dt</script></li>
+</ol>
+<ul>
+<li><p>极坐标形式</p>
+<script type="math/tex; mode=display">
+设所给曲线的极坐标方程为r=r(\theta),则由曲线r=r(\theta)和射线\theta=\alpha,\theta=\beta围成的面积为\\
+S=\int_{\alpha}^{\beta}\frac{1}{2}r^2(\theta)d\theta</script></li>
+</ul>
+<ol>
+<li><p>求体积 </p>
+<ul>
+<li>大减小</li>
+<li>柱壳法</li>
+</ul>
+</li>
+<li><p>求弧长</p>
+<p>$ds=\sqrt{(dx)^2+(dy)^2}$</p>
+<ul>
+<li>直角坐标形式</li>
+</ul>
+<script type="math/tex; mode=display">
+设求曲线y=f(x)在[a,b]上的弧长S,则\\
+S=\int_{a}^{b}\sqrt{1+f'^2(x)}dx</script><ul>
+<li>参数方程形式</li>
+</ul>
+<script type="math/tex; mode=display">
+设曲线的参数方程是\left\{
+  \begin{aligned}
+  x=x(t)\\
+  y=y(t)
+  \end{aligned}
+  \right.\\
+  S=\int_{\alpha}^{\beta}\sqrt{x'^2(t)+y'^2(t)}dt</script><ul>
+<li>极坐标形式</li>
+</ul>
+<script type="math/tex; mode=display">
+设曲线的极坐标参数方程r=r(\theta)，可化为  \left\{
+  \begin{aligned}
+  x=r(\theta)\cos (\theta)\\ y=r(\theta)\sin(\theta)
+  \end{aligned}
+  \right.，则\\
+  S=\int_{\alpha}^{\beta}\sqrt{r^2(\theta)+r'^2(\theta)}d(\theta)</script></li>
+</ol>
+<h3 id="9、定积分的物理应用"><a href="#9、定积分的物理应用" class="headerlink" title="9、定积分的物理应用"></a>9、定积分的物理应用</h3><ol>
+<li>变力沿直线做工功</li>
+<li>液体对薄板的侧压力</li>
+</ol>
+<p><del>结合具体题型和微元法</del></p>
+<hr>
+<h1 id="第六章：常微分方程"><a href="#第六章：常微分方程" class="headerlink" title="第六章：常微分方程"></a>第六章：常微分方程</h1><h3 id="1、一阶微分方程"><a href="#1、一阶微分方程" class="headerlink" title="1、一阶微分方程"></a>1、一阶微分方程</h3><ul>
+<li><p>可分离变量微分方程</p>
+<ul>
+<li>可直接分离</li>
+<li>齐次方程（换元）</li>
+</ul>
+</li>
+<li><p>一阶线性微分方程</p>
+<p>$y’+P(x)y=Q(x)$称为一阶线性微分方程</p>
+<p>$y’+P(x)y=0$称为对应的一阶齐次线性微分方程</p>
+<p>1.常数变易法</p>
+<p>​    ①先求出对应的一阶齐次线性微分方程的通解</p>
+<script type="math/tex; mode=display">
+y=Ce^{-\int P(x)dx}\quad\quad(*)</script><p>​    ②用常数变易法，令常数$C$为$C(x)$，再将其带入一阶线性微分方程可求出$C(x)$</p>
+<script type="math/tex; mode=display">
+C(x)=Q(x)e^{\int P(x)dx}+C_1</script><p>③再将其带入$(*)$式即为通解</p>
+<p>2.公式法</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+y=e^{-\int P(x)dx}[C+\int Q(x)e^{\int P(x)dx}dx]</script><ul>
+<li><p>伯努利方程</p>
+<p>$y’+P(x)y=Q(x)y^n$</p>
+<script type="math/tex; mode=display">
+在原式两端同除y^n，得y^{-n}y'+y^{1-n}P(x)=Q（x）\\
+令y^{1-n}=z，两边求导得\frac{1}{1-n}y^{-n}y'=z'\\
+带入原式得z'+z(1-n)P(x)=(1-n)Q(x)</script></li>
+</ul>
+<h3 id="2、可降阶的微分方程"><a href="#2、可降阶的微分方程" class="headerlink" title="2、可降阶的微分方程"></a>2、可降阶的微分方程</h3><ol>
+<li><p>$y^{(n)}=f(x)$</p>
+<p>两边连续多次积分</p>
+</li>
+<li><p>$y’’=f(x,y’)$</p>
+<p>令$y’=p$    $(p=p(x))$把x当作自变量</p>
+</li>
+<li><p>$y’’=f(y,y’’)$</p>
+<p>令$y’=p$    $(p=p(y))$把y当作自变量</p>
+<p>$y’’=\frac{dp}{dx}=\frac{dp}{dy}·\frac{dy}{dx}=p·\frac{dp}{dy}$</p>
+</li>
+</ol>
+<h3 id="3、高阶线性微分方程"><a href="#3、高阶线性微分方程" class="headerlink" title="3、高阶线性微分方程"></a>3、高阶线性微分方程</h3><ul>
+<li><p>叠加原理</p>
+<ul>
+<li>齐次线性微分方程的通解的线性组合仍然是通解</li>
+<li>非齐次线性微分方程的特解的线性组合仍然是特解</li>
+</ul>
+</li>
+<li><p>高阶线性微分方程解的结构</p>
+<p>非齐次线性微分方程的解=它的特解+对应的齐次线性微分方程的通解</p>
+</li>
+<li><p>常系数线性微分方程</p>
+<script type="math/tex; mode=display">
+设有二阶常系数线性微分方程:\\
+y''+py'+qy=f(x)\\
+称r^2+pr+q=0为其特征方程\\
+设r_1,r_2为它的两个解</script><ul>
+<li><p>常系数齐次线性微分方程的通解</p>
+<ol>
+<li>$r_1,r_2$是两个不相等的实根</li>
+</ol>
+<script type="math/tex; mode=display">
+y=C_1e^{r_1x}+C_2e^{r_2x}</script><ol>
+<li>$r_1=r_2=r$是二重实根</li>
+</ol>
+<script type="math/tex; mode=display">
+y=(C_1+C_2x)e^{rx}</script><ol>
+<li>$r_1=\alpha+i\beta,r_2=\alpha+i\beta$是一对共轭复根<script type="math/tex; mode=display">
+y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)</script></li>
+</ol>
+</li>
+<li><p>常系数非齐次线性微分方程的特解</p>
+<ol>
+<li>$f(x)=P_m(x)e^{\lambda x}$其中$\lambda$是常数$P_m(x)$是$m$次多项式</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+y^*=x^ke^{\lambda x}Q_m(x)\\
+k=\left\{
+  \begin{aligned}
+  0\quad\lambda不是特征根\\ 
+  1\quad\lambda是特征单根\\
+  2\quad\lambda是2重特征根
+  \end{aligned}
+  \right.\\
+  可推广到n阶</script><p>​                 2. $f(x)=e^{\lambda x}[P_l(x)\cos\omega x+P_n(x)\sin\omega x]$ 其中$P_l(x),P_n(x)$分别是$l,n$次多项式</p>
+<script type="math/tex; mode=display">
+y^*=x^ke^{\lambda x}[R_m^{(1)}(x)\cos\omega x+R_m^{(1)}(x)\sin\omega x]\\
+当\lambda\pm i\omega是特征方程的根，k=1，\\
+否则k=0</script><hr>
+<p><strong><em>完结撒花！！！</em></strong></p>
+<p><strong><em>感谢你的阅读</em></strong></p>
+<p><strong><em><del>（这篇博文耗费了我三天时间（可能是又菜又咕），最后还有个小插曲——就是在深夜敲第六章时，突然发现电脑前的墙上有一只蚰蜒（还是我这辈子第一次这么近距离接触，san值直接跌成零）！！！关键是它还很快爬到了桌子底下，导致我打不到它！！！······所以我现在怀着忐忑的心情，打算deploy后再找它算账······）</del></em></strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%8D%E4%B9%A0/" rel="tag"># 复习</a>
+              <a href="/tags/%E9%AB%98%E6%95%B0/" rel="tag"># 高数</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/31/happy-new-year/" rel="prev" title="happy new year!">
+      <i class="fa fa-chevron-left"></i> happy new year!
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/05/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E5%8F%B2%E4%B8%BB%E8%A7%82%E9%A2%98%E5%A4%8D%E4%B9%A0/" rel="next" title="中国近代史主观题复习">
+      中国近代史主观题复习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9A%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD"><span class="nav-number">1.</span> <span class="nav-text">第一章：极限与连续</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%97%A0%E7%A9%B7%E5%B0%8F%E7%9A%84%E6%AF%94%E8%BE%83%E3%80%81%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F%E7%9A%84%E6%9B%BF%E6%8D%A2"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、无穷小的比较、等价无穷小的替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E6%9E%81%E9%99%90"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、两个重要极限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%B1%82%E5%87%BD%E6%95%B0%E9%97%B4%E6%96%AD%E7%82%B9%E5%8F%8A%E9%97%B4%E6%96%AD%E7%82%B9%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E5%88%AB"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、求函数间断点及间断点类型的判别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E7%9A%84%E6%B1%82%E6%B3%95"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、函数极限的求法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E6%9E%81%E9%99%90%E5%AD%98%E5%9C%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%87%86%E5%88%99"><span class="nav-number">1.0.5.</span> <span class="nav-text">5、极限存在的两个准则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%BE%AE%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">第二章：导数与微分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AF%BC%E6%95%B0"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、导数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%BE%AE%E5%88%86"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、微分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%E4%B8%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">第三章：微分中值定理与导数的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、微分中值定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、洛必达法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">3.0.3.</span> <span class="nav-text">3、泰勒公式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-number">3.0.3.1.</span> <span class="nav-text">泰勒多项式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">3.0.3.2.</span> <span class="nav-text">泰勒中值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BA%A6%E5%85%8B%E5%8A%B3%E6%9E%97%E5%85%AC%E5%BC%8F%EF%BC%88%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BD%A2%E5%BC%8F%EF%BC%89"><span class="nav-number">3.0.3.3.</span> <span class="nav-text">麦克劳林公式（几种常见的形式）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E7%BB%98%E5%88%B6"><span class="nav-number">3.0.4.</span> <span class="nav-text">4、函数的绘制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">第四章：不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%8D%A2%E5%85%83%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、换元积分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、分部积分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%A7%AF%E5%88%86"><span class="nav-number">4.0.3.</span> <span class="nav-text">3、有理函数的积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%B8%B8%E7%94%A8%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">4.0.4.</span> <span class="nav-text">4、常用不定积分</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E5%AE%9A%E7%A7%AF%E5%88%86%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">第五章：定积分及其应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、定积分的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89%EF%BC%9A%E9%9D%A2%E7%A7%AF"><span class="nav-number">5.0.2.</span> <span class="nav-text">2、定积分的几何意义：面积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">5.0.3.</span> <span class="nav-text">3、定积分的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E5%BE%AE%E7%A7%AF%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="nav-number">5.0.4.</span> <span class="nav-text">4、微积分基本定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E6%8D%A2%E5%85%83%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">5.0.5.</span> <span class="nav-text">5、定积分的换元积分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%88%86%E9%83%A8%E7%A7%AF%E5%88%86%E6%B3%95"><span class="nav-number">5.0.6.</span> <span class="nav-text">6、定积分的分部积分法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86"><span class="nav-number">5.0.7.</span> <span class="nav-text">7、广义积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E5%87%A0%E4%BD%95%E5%BA%94%E7%94%A8"><span class="nav-number">5.0.8.</span> <span class="nav-text">8、定积分的几何应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E7%89%A9%E7%90%86%E5%BA%94%E7%94%A8"><span class="nav-number">5.0.9.</span> <span class="nav-text">9、定积分的物理应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">第六章：常微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">6.0.1.</span> <span class="nav-text">1、一阶微分方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E5%8F%AF%E9%99%8D%E9%98%B6%E7%9A%84%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">6.0.2.</span> <span class="nav-text">2、可降阶的微分方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-number">6.0.3.</span> <span class="nav-text">3、高阶线性微分方程</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="風楪FY"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">風楪FY</p>
+  <div class="site-description" itemprop="description">向来心是看客心，奈何人是剧中人</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">風楪FY</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    // window.MathJax = {
+    //   loader: {
+    //
+    //       load: ['[tex]/mhchem'],
+    //
+    //     source: {
+    //       '[tex]/amsCd': '[tex]/amscd',
+    //       '[tex]/AMScd': '[tex]/amscd'
+    //     }
+    //   },
+    //   tex: {
+    //     inlineMath: {'[+]': [['$', '$']]},
+    //
+    //       packages: {'[+]': ['mhchem']},
+    //
+    //     tags: 'ams'
+    //   },
+    //   options: {
+    //     renderActions: {
+    //       findScript: [10, doc => {
+    //         document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+    //           const display = !!node.type.match(/; *mode=display/);
+    //           const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+    //           const text = document.createTextNode('');
+    //           node.parentNode.replaceChild(text, node);
+    //           math.start = {node: text, delim: '', n: 0};
+    //           math.end = {node: text, delim: '', n: 0};
+    //           doc.math.push(math);
+    //         });
+    //       }, '', false],
+    //       insertedScript: [200, () => {
+    //         document.querySelectorAll('mjx-container').forEach(node => {
+    //           let target = node.parentNode;
+    //           if (target.nodeName.toLowerCase() === 'li') {
+    //             target.parentNode.classList.add('has-jax');
+    //           }
+    //         });
+    //       }, '', false]
+    //     }
+    //   }
+    // };
+    window.MathJax = {
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Rjkg4dzQKMjplv1lea893PPH-gzGzoHsz',
+      appKey     : 'F7Dhl7Cu9MJAyaCQBuj95yPo',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
