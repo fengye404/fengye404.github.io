@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文旨在列举出一些常见考点和一些易忘公式结论，以达到备忘效果。因此较为简单或偏僻的定义、公式、结论都不过多赘述，只作为提纲列出（可后续自行百度或查书） 本文为作者一人借鉴资料独自整理，难免有所纰漏，若读者发现错误，可与作者联系，及时纠正。 第七章：多元函数微分学及其应用6、方向导数与梯度 方向导数  定义：  设函数z&#x3D;f(x,y)在点P(x_0,y_0)的某一领域内有意义，自点P引射线l与x轴正">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-08T04:30:32.000Z">
-<meta property="article:modified_time" content="2021-03-08T12:43:59.069Z">
+<meta property="article:modified_time" content="2021-03-12T00:39:09.178Z">
 <meta property="article:author" content="風楪FY">
 <meta property="article:tag" content="高数">
 <meta property="article:tag" content="笔记">
@@ -194,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-08 12:30:32 / 修改时间：20:43:59" itemprop="dateCreated datePublished" datetime="2021-03-08T12:30:32+08:00">2021-03-08</time>
+              <time title="创建时间：2021-03-08 12:30:32" itemprop="dateCreated datePublished" datetime="2021-03-08T12:30:32+08:00">2021-03-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-12 08:39:09" itemprop="dateModified" datetime="2021-03-12T08:39:09+08:00">2021-03-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -257,7 +263,8 @@
 <ol>
 <li><p>若$z=f(x,y)$在点$P(x,y)$处<strong>可微</strong>，则函数一定在该点沿任一方向$l={\cos\alpha,\sin\alpha}$方向的<strong>方向导数都存在</strong>，且</p>
 <script type="math/tex; mode=display">
-\frac{\partial f}{\partial l}\Bigg|_P=f_x(x,y)\cos\alpha+f_y(x,y)\sin\alpha</script></li>
+\frac{\partial f}{\partial l}\Bigg|_P=f_x(x,y)\cos\alpha+f_y(x,y)\sin\alpha\quad(\alpha是l与x轴正向的夹角)\\
+=f_x()\cos\alpha+f_y(x,y)\cos\beta\quad(\cos\alpha,\cos\beta是l的方向余弦)</script></li>
 <li><p>可偏导$\nRightarrow$方向导数都存在</p>
 <p>方向导数都存在$\nRightarrow$可偏导</p>
 </li>
@@ -270,7 +277,23 @@
 <li>定义：<script type="math/tex; mode=display">
 设函数u=f(x,y,z)在点P(x,y,z)处可微，则由三个偏导数构成的向量\{f_x,f_y,f_z\}_P称为\\
 u=f(x,y,z)在点P处的梯度，记为\boldsymbol{grad}u|_P或\boldsymbol{grad}f(x,y,z),即\\
-\boldsymbol{grad}u|_P=\{u_x,u_y,u_z\}_P=\{f_x,f_y,f_z\}_P</script></li>
+\boldsymbol{grad}u|_P=\{u_x,u_y,u_z\}_P=\{f_x,f_y,f_z\}_P\\
+若l^0=\{\cos\alpha,\cos\beta,\cos\gamma\}是与l同方向的单位向量，则可微函数f(x,y,z)在\\点P(x,y,z)处沿l方向的方向导数\\
+\frac{\partial f}{\partial l}\Bigg|_P=f_x(P)\cos\alpha+f_y(P)\cos\beta+f_z(P)\cos\gamma\\
+=\boldsymbol{grad}f|_P\cdot l^0=\Bigg|\boldsymbol{grad}f|_p\Bigg|\cdot\cos(\boldsymbol{grad}f|_P,l)</script></li>
+</ul>
+</li>
+</ul>
+<h3 id="7、多元函数的极值-最值-及其求法"><a href="#7、多元函数的极值-最值-及其求法" class="headerlink" title="7、多元函数的极值(最值)及其求法"></a>7、多元函数的极值(最值)及其求法</h3><ul>
+<li><p>多元函数的极值</p>
+<ul>
+<li><p>必要条件</p>
+<script type="math/tex; mode=display">
+设函数z=f(x,y)在点P_0(x_0,y_0)处取得极值，且函数在该点处的偏导数存在，\\则f_x(x_0,y_0)=f_y(x_0,y_0)=0，\\也可记为\nabla f(P_0)=0，称P_0为驻点</script></li>
+<li><p>充分条件</p>
+<script type="math/tex; mode=display">
+设z=f(x,y)在点(x_0,y_0)的某邻域内有二阶连续偏导数，且\nabla f(x_0,y_0)=0，\\
+记A=f_{xx}(x_0,y_0),B=f_{xy}(x_0,y_0),C=f_{yy}(x_0,y_0)</script></li>
 </ul>
 </li>
 </ul>
@@ -356,7 +379,7 @@ u=f(x,y,z)在点P处的梯度，记为\boldsymbol{grad}u|_P或\boldsymbol{grad}f
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">第七章：多元函数微分学及其应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%96%B9%E5%90%91%E5%AF%BC%E6%95%B0%E4%B8%8E%E6%A2%AF%E5%BA%A6"><span class="nav-number">1.0.1.</span> <span class="nav-text">6、方向导数与梯度</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">第七章：多元函数微分学及其应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%96%B9%E5%90%91%E5%AF%BC%E6%95%B0%E4%B8%8E%E6%A2%AF%E5%BA%A6"><span class="nav-number">1.0.1.</span> <span class="nav-text">6、方向导数与梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E5%80%BC-%E6%9C%80%E5%80%BC-%E5%8F%8A%E5%85%B6%E6%B1%82%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">7、多元函数的极值(最值)及其求法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
