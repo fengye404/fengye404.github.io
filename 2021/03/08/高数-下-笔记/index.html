@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文旨在列举出一些常见考点和一些易忘公式结论，以达到备忘效果。因此较为简单或偏僻的定义、公式、结论都不过多赘述，只作为提纲列出（可后续自行百度或查书） 本文为作者一人借鉴资料独自整理，难免有所纰漏，若读者发现错误，可与作者联系，及时纠正。 第七章：多元函数微分学及其应用6、方向导数与梯度 方向导数  定义：  设函数z&#x3D;f(x,y)在点P(x_0,y_0)的某一领域内有意义，自点P引射线l与x轴正">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-08T04:30:32.000Z">
-<meta property="article:modified_time" content="2021-03-12T00:39:09.178Z">
+<meta property="article:modified_time" content="2021-03-15T03:34:03.210Z">
 <meta property="article:author" content="風楪FY">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="高数">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-12 08:39:09" itemprop="dateModified" datetime="2021-03-12T08:39:09+08:00">2021-03-12</time>
+                <time title="修改时间：2021-03-15 11:34:03" itemprop="dateModified" datetime="2021-03-15T11:34:03+08:00">2021-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,6 +297,51 @@ u=f(x,y,z)在点P处的梯度，记为\boldsymbol{grad}u|_P或\boldsymbol{grad}f
 </ul>
 </li>
 </ul>
+<ul>
+<li><h1 id="第八章：重积分"><a href="#第八章：重积分" class="headerlink" title="第八章：重积分"></a>第八章：重积分</h1></li>
+</ul>
+<h3 id="1、重积分概念与性质"><a href="#1、重积分概念与性质" class="headerlink" title="1、重积分概念与性质"></a>1、重积分概念与性质</h3><ul>
+<li><p>重积分的定义</p>
+<script type="math/tex; mode=display">
+设f(x,y)事平面有界闭区域D上的有界韩寒苏，将区域D任意分割成n个彼此无公共内点的小区域\\
+\Delta\sigma_1,\Delta\sigma_2,\cdots,\Delta\sigma_n,\\
+其中\Delta\sigma_i表示第i个小区域，也表示它的面积.任取点(\xi_i,\eta_i)\in\Delta\sigma_i,\\作乘积f(\xi_i,\eta_i)\Delta\sigma_i(i=1,2,\cdots,n),并求和\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i.\\如果当各个小区域的直径的最大值\lambda趋于零时，该和式的极限存在，\\并且极限的值与分割方式及点(\xi_i,\eta_i)的取法无关，\\则称此极限为函数f(x,y)在闭区域D上的重积分,记作\iint_Df(x,y)d\sigma,\\
+即\iint_Df(x,y)d\sigma=\lim_{\lambda\rightarrow0}\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i\\
+其中f(x,y)称为被积函数，f(x,y)d\sigma称为被积表达式，\sigma称为面积元素,\\
+x与y称为积分变量，D称为积分区域，\sum_{i=1}^{n}f(\xi_i,\eta_i)\Delta\sigma_i称为积分和\\
+(以上定义可推广到n重积分,二重为面积，三重为体积)</script><ul>
+<li><p>充分条件：若$f(X)$在$\Omega$上连续，则它在$\Omega$上必可积</p>
+</li>
+<li><p>必要条件：若$f(X)$在$\Omega$上可积，则它在$\Omega$上有界</p>
+<p>（$f(X)$为被积函数，$\Omega$为积分区域）</p>
+</li>
+</ul>
+</li>
+<li><p>重积分的性质</p>
+<ol>
+<li><p>区域D的面积</p>
+<script type="math/tex; mode=display">
+\sigma=\iint_D1\cdot d\sigma=\iint_Dd\sigma</script></li>
+<li><p>（关于被积函数的线性可加性）若$\alpha,\beta$为常数，则</p>
+<script type="math/tex; mode=display">
+\iint_D[\alpha f(x,y)d\sigma\pm\beta f(x,y)d\sigma]=\alpha\iint_Df(x,y)d\sigma\pm\beta\iint_Df(x,y)d\sigma</script></li>
+<li><p>（关于积分区域的可加性）若$D=D_1\cup D_2$，且$D_1$与$D_2$无公共内点，则</p>
+<script type="math/tex; mode=display">
+\iint_Df(x,y)d\sigma =\iint_{D_1}f(x,y)d\sigma+\iint_{D_2}f(x,y)d\sigma</script></li>
+<li><p>（积分不等式）如果在D上，$f(x,y)\leq g(x,y)$，则</p>
+<script type="math/tex; mode=display">
+\iint_Df(x,y)d\sigma\leq\iint_Dg(x,y)d\sigma</script><p>特别地</p>
+<script type="math/tex; mode=display">
+\Bigg|\iint_Df(x,y)d\sigma\Bigg|\leq\iint_D\Big|f(x,y)\Big|d\sigma</script></li>
+<li><p>（估值定理）设$M,m$分别是函数$f(x,y)$在闭区域$D$上地最大值和最小值，$\sigma$表示$D$的面积，则</p>
+<script type="math/tex; mode=display">
+m\sigma\leq\iint_Df(x,y)d\sigma\leq M\sigma</script></li>
+<li><p>（中值定理）设函数$f(x,y)$在闭区域D上连续，$\sigma$表示D的面积，至少存在一点$(\xi,\eta)\in D$，使</p>
+<script type="math/tex; mode=display">
+\iint_Df(x,y)d\sigma=f(\xi,\eta)d\sigma</script></li>
+</ol>
+</li>
+</ul>
 
     </div>
 
@@ -382,7 +427,7 @@ u=f(x,y,z)在点P处的梯度，记为\boldsymbol{grad}u|_P或\boldsymbol{grad}f
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">第七章：多元函数微分学及其应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%96%B9%E5%90%91%E5%AF%BC%E6%95%B0%E4%B8%8E%E6%A2%AF%E5%BA%A6"><span class="nav-number">1.0.1.</span> <span class="nav-text">6、方向导数与梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E5%80%BC-%E6%9C%80%E5%80%BC-%E5%8F%8A%E5%85%B6%E6%B1%82%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">7、多元函数的极值(最值)及其求法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9A%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">第七章：多元函数微分学及其应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%96%B9%E5%90%91%E5%AF%BC%E6%95%B0%E4%B8%8E%E6%A2%AF%E5%BA%A6"><span class="nav-number">1.0.1.</span> <span class="nav-text">6、方向导数与梯度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%81%E5%80%BC-%E6%9C%80%E5%80%BC-%E5%8F%8A%E5%85%B6%E6%B1%82%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">7、多元函数的极值(最值)及其求法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E9%87%8D%E7%A7%AF%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">第八章：重积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%87%8D%E7%A7%AF%E5%88%86%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、重积分概念与性质</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
