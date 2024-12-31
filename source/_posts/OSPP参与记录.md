@@ -11,6 +11,8 @@ tags:
 
 今年毕业前申请参与了2024年的开源之夏（OSPP），是一次很宝贵的开源项目经验，最终成功结项。写这篇博客以此记录留存。
 
+本博客记录的内容截至日期为 2024:09:30，最终方案相比本文有变动，例如放弃 jprotobuf 方案、重构 Grpc 调用模块等。具体详见：https://github.com/alibaba/arthas/pull/2914
+
 ------
 
 # 项目申请书
@@ -719,9 +721,9 @@ private void handleGrpcData(Http2DataFrame dataFrame, ChannelHandlerContext ctx)
 
 #### 结果验证
 
-![a925910e3a991ae54592d2f4c26a7a2](C:\Users\11291\Documents\WeChat Files\wxid_7n3wlrym4hzt21\FileStorage\Temp\a925910e3a991ae54592d2f4c26a7a2.png)
+![a925910e3a991ae54592d2f4c26a7a2](./a925910e3a991ae54592d2f4c26a7a2.png)
 
-![1128115203a1559176da16aa96e1ce3](C:\Users\11291\Documents\WeChat Files\wxid_7n3wlrym4hzt21\FileStorage\Temp\1128115203a1559176da16aa96e1ce3.png)
+![1128115203a1559176da16aa96e1ce3](./1128115203a1559176da16aa96e1ce3.png)
 
 开发完毕后，使用 apifox 针对服务发起调用，验证结果符合预期；
 
